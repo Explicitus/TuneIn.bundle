@@ -7,7 +7,7 @@ NAME = "TuneIn"
 ART = 'art-default.jpg'
 ICON = 'icon-default.png'
 
-ROOT_MENU = 'http://opml.radiotime.com/Browse.ashx'
+ROOT_MENU = 'http://opml.radiotime.com/Browse.ashx?formats=mp3,aac,ogg,wma'
 
 ####################################################################################################
 
@@ -21,28 +21,27 @@ def Start():
     Plugin.AddViewGroup("Details", viewMode = "InfoList", mediaType = "items")
     
     # Setup the artwork associated with the plugin
-    MediaContainer.art = R(ART)
-    MediaContainer.title1 = NAME
-    MediaContainer.viewGroup = "List"
-    DirectoryItem.thumb = R(ICON)
+    ObjectContainer.art = R(ART)
+    ObjectContainer.title1 = NAME
+    ObjectContainer.viewGroup = "List"
+    DirectoryObject.thumb = R(ICON)
 
 ####################################################################################################
 
 def MainMenu():
-    dir = MediaContainer(disabledViewModes=["Coverflow"], title1 = NAME)
-
+    oc = ObjectContainer(view_group="List", title1 = NAME)
     root = XML.ElementFromURL(ROOT_MENU)
     for item in root.xpath("//body/outline[@type='link']"):
         title = item.get('text')
         url = item.get('URL')
-        dir.Append(Function(DirectoryItem(SubMenu, title = title), url = url))
+        oc.add(DirectoryObject(key = Callback(SubMenu, url = url), title = title))
     
-    return dir
+    return oc
 
 ####################################################################################################
 
-def SubMenu(sender, url, root = None, outline_index = 0):
-    dir = MediaContainer(disabledViewModes=["Coverflow"], title1 = L('Title'), title2 = sender.itemTitle)
+def SubMenu(url, root = None, outline_index = 0):
+    oc = ObjectContainer(view_group="List", title1 = L('Title'))
 
     index = 0
     navigator = "/"
@@ -73,7 +72,7 @@ def SubMenu(sender, url, root = None, outline_index = 0):
         if type == 'link':
 
             url = item.get('URL')
-            dir.Append(Function(DirectoryItem(SubMenu, title = title), url = url))
+            oc.add(DirectoryObject(key = Callback(SubMenu, url = url), title = title))
 
         # If we have actually found an audio stream, we should expect it to contain more
         # information about the available content.
@@ -83,11 +82,11 @@ def SubMenu(sender, url, root = None, outline_index = 0):
             url = item.get('URL')
             subtitle = item.get('subtext')
             thumb = item.get('image')
-            dir.Append(TrackItem(url, title = title, subtitle = subtitle, thumb = thumb))
+            oc.add(TrackObject(url = url, title = title, thumb = thumb))
 
         else:
 
             # We'll use the same url but navigate further down the available sub-items.
-            dir.Append(Function(DirectoryItem(SubMenu, title = title), url = url, outline_index = outline_index + 1, root = XML.StringFromElement(item)))
+            oc.add(DirectoryObject(key = Callback(SubMenu, url = url, outline_index = outline_index + 1, root = XML.StringFromElement(item)), title = title))
 
-    return dir
+    return oc

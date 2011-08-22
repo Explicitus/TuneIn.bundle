@@ -22,5 +22,15 @@
 	<string>2</string>
 	<key>PlexPluginMode</key>
 	<string>AlwaysOn</string>
+	<key>PlexURLServices</key>
+	<dict>
+		<key>TuneIn</key>
+		<dict>
+			<key>URLPattern</key>
+			<string>http://opml.radiotime.com/Tune.ashx.*</string>
+			<key>LinkedPlugin</key>
+			<string>com.plexapp.plugins.tunein</string>
+		</dict>
+    </dict>
 </dict>
 </plist>
