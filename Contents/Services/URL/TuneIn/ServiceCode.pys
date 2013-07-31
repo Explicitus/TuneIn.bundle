@@ -1,0 +1,82 @@
+DETAILS_URL = 'http://opml.radiotime.com/Describe.ashx?id=%s'
+STATION_DETAILS_URL = 'http://opml.radiotime.com/Describe.ashx?c=nowplaying&id=%s'
+
+RE_ID = Regex('id=(?P<id>(s|p)\d+)')
+RE_ENTRIES = Regex('NumberOfEntries=(?P<entries>\d+)')
+RE_STREAM = Regex('File%s=(?P<stream>.*)$')
+
+####################################################################################################
+def MetadataObjectForURL(url):
+
+    station_id = RE_ID.search(url).group('id')
+    station_details_page = XML.ElementFromURL(STATION_DETAILS_URL % station_id)
+
+    station = station_details_page.xpath("//outline[@key='station']/text()")[0]
+
+    show_id = station_details_page.xpath("//outline[@key='show']/@guide_id")[0]
+    show_detail_page = XML.ElementFromURL(DETAILS_URL % show_id)
+
+    try: title = show_detail_page.xpath("//show/title/text()")[0]
+    except: title = None
+
+    try: hosts = show_detail_page.xpath("//show/hosts/text()")[0]
+    except: hosts = None
+
+    try: thumb = show_detail_page.xpath("//show/logo/text()")[0]
+    except: thumb = ''
+
+    try: genre = show_detail_page.xpath("//show/genre_id/text()")[0]
+    except: genre = None
+
+    return TrackObject(
+        artist = station,
+        album = title,
+        title = hosts,
+        thumb = Resource.ContentsOfURLWithFallback(thumb)
+    )
+
+####################################################################################################
+def MediaObjectsForURL(url):
+
+    return [
+        MediaObject(
+            parts = [
+                PartObject(key = Callback(PlayTrack, url=url))
+            ]
+        )
+    ]
+
+####################################################################################################
+def PlayTrack(url):
+
+    details = XML.ElementFromURL(url + '&c=ebrowse')
+    Log(XML.StringFromElement(details))
+
+    stream_url = details.xpath("//outline[@type='audio']/@URL")[0]
+    Log(stream_url)
+
+    Log(HTTP.Request(stream_url).content.strip())
+    return Redirect(HTTP.Request(stream_url).content.strip())
+
+####################################################################################################
+def parse_m3u(content):
+
+    streams = []
+
+    for item in content.split('\n'):
+
+        if item.startswith('#') == False:
+            streams.append(item.strip())
+
+    return streams
+
+####################################################################################################
+def parse_pls(content):
+
+    streams = []
+    entries = RE_ENTRIES.search(content).group('entries')
+
+    for i in range(1, entries+1):
+        streams.append(RE_STREAM.search(content).group('stream'))
+
+    return streams
