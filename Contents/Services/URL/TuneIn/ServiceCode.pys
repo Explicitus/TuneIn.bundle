@@ -11,9 +11,9 @@ def MetadataObjectForURL(url):
     station_id = RE_ID.search(url).group('id')
     station_details_page = XML.ElementFromURL(STATION_DETAILS_URL % station_id)
 
-    station = station_details_page.xpath("//outline[@key='station']/text()")[0]
+    station = station_details_page.xpath("//outline[@key='station']/text()")
 
-    show_id = station_details_page.xpath("//outline[@key='show']/@guide_id")[0]
+    show_id = station_details_page.xpath("//outline[@key='show']/@guide_id")
     show_detail_page = XML.ElementFromURL(DETAILS_URL % show_id)
 
     try: title = show_detail_page.xpath("//show/title/text()")[0]
