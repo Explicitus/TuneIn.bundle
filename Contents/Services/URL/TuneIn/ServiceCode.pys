@@ -11,22 +11,19 @@ def MetadataObjectForURL(url):
     station_id = RE_ID.search(url).group('id')
     station_details_page = XML.ElementFromURL(STATION_DETAILS_URL % station_id)
 
-    station = station_details_page.xpath("//outline[@key='station']/text()")
+    station = station_details_page.xpath("//outline[@key='station']/@text")[0]
 
-    show_id = station_details_page.xpath("//outline[@key='show']/@guide_id")
+    show_id = station_details_page.xpath("//outline[@key='show']/@guide_id")[0]
     show_detail_page = XML.ElementFromURL(DETAILS_URL % show_id)
 
-    try: title = show_detail_page.xpath("//show/title/text()")[0]
+    try: title = show_detail_page.xpath("//show/title/text()")
     except: title = None
 
-    try: hosts = show_detail_page.xpath("//show/hosts/text()")[0]
+    try: hosts = show_detail_page.xpath("//show/hosts/text()")
     except: hosts = None
 
-    try: thumb = show_detail_page.xpath("//show/logo/text()")[0]
+    try: thumb = show_detail_page.xpath("//show/logo/text()")
     except: thumb = ''
-
-    try: genre = show_detail_page.xpath("//show/genre_id/text()")[0]
-    except: genre = None
 
     return TrackObject(
         artist = station,
