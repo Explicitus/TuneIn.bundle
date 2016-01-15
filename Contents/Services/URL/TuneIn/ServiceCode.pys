@@ -1,6 +1,5 @@
 DETAILS_URL = 'http://opml.radiotime.com/Describe.ashx?id=%s'
 STATION_DETAILS_URL = 'http://opml.radiotime.com/Describe.ashx?c=nowplaying&id=%s'
-STATION_PLAY_URL = 'http://opml.radiotime.com/Tune.ashx?id=%s&formats=mp3,aac'
 
 RE_ID = Regex('id=(?P<id>(s|p)\d+)')
 RE_ENTRIES = Regex('NumberOfEntries=(?P<entries>\d+)')
@@ -8,8 +7,6 @@ RE_STREAM = Regex('File%s=(?P<stream>.*)$')
 
 ####################################################################################################
 def MetadataObjectForURL(url):
-
-    Log.Debug("Requesting for metadata: "+url)
 
     station_id = RE_ID.search(url).group('id')
     station_details_page = XML.ElementFromURL(STATION_DETAILS_URL % station_id)
@@ -43,8 +40,6 @@ def MetadataObjectForURL(url):
 
 ####################################################################################################
 def MediaObjectsForURL(url):
-
-
 
     return [
         MediaObject(
