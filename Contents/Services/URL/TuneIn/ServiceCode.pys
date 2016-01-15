@@ -2,8 +2,6 @@ DETAILS_URL = 'http://opml.radiotime.com/Describe.ashx?id=%s'
 STATION_DETAILS_URL = 'http://opml.radiotime.com/Describe.ashx?c=nowplaying&id=%s'
 
 RE_ID = Regex('id=(?P<id>(s|p)\d+)')
-RE_ENTRIES = Regex('NumberOfEntries=(?P<entries>\d+)')
-RE_STREAM = Regex('File%s=(?P<stream>.*)$')
 
 ####################################################################################################
 def MetadataObjectForURL(url):
@@ -41,13 +39,13 @@ def MetadataObjectForURL(url):
 ####################################################################################################
 def MediaObjectsForURL(url):
 
-    return [
-        MediaObject(
-            parts = [
-                PartObject(key = Callback(PlayTrack, url=url))
-            ]
-        )
-    ]
+   return [MediaObject(
+        # container = container,
+        # audio_codec = audio_codec,
+        # bitrate = bitrate,
+        # audio_channels = 2,
+        parts = [PartObject(key = Callback(PlayTrack, url=url))]
+    )]
 
 ####################################################################################################
 def PlayTrack(url):
@@ -55,31 +53,15 @@ def PlayTrack(url):
     details = XML.ElementFromURL(url + '&c=ebrowse')
     Log(XML.StringFromElement(details))
 
-    stream_url = details.xpath("//outline[@type='audio']/@URL")[0]
+    audios = details.xpath("//outline[@type='audio']")
+    best_reliability = 0
+    for audio in audios:
+        reliability = int(audio.get('reliability'))
+        if reliability > best_reliability:
+            best_reliability = reliability
+            stream_url = audio.get('URL')
     Log(stream_url)
 
-    Log(HTTP.Request(stream_url).content.strip())
+    # Log(HTTP.Request(stream_url).content.strip())
+
     return Redirect(HTTP.Request(stream_url).content.strip())
-
-####################################################################################################
-def parse_m3u(content):
-
-    streams = []
-
-    for item in content.split('\n'):
-
-        if item.startswith('#') == False:
-            streams.append(item.strip())
-
-    return streams
-
-####################################################################################################
-def parse_pls(content):
-
-    streams = []
-    entries = RE_ENTRIES.search(content).group('entries')
-
-    for i in range(1, entries+1):
-        streams.append(RE_STREAM.search(content).group('stream'))
-
-    return streams
