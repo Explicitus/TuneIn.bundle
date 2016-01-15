@@ -1,10 +1,16 @@
 ROOT_MENU = 'http://opml.radiotime.com/Browse.ashx?formats=mp3,aac'
 
+ART    = 'art-default.jpg'
+ICON   = 'icon-default.png'
+
 ####################################################################################################
 def Start():
 
     ObjectContainer.title1 = 'TuneIn'
     HTTP.CacheTime = 300
+    ObjectContainer.art = R(ART)
+    DirectoryObject.art = R(ART)
+    DirectoryObject.thumb = R(ICON)
 
 ####################################################################################################
 @handler('/music/tunein', 'TuneIn')
