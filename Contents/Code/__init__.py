@@ -29,7 +29,7 @@ def Menu(url=ROOT_MENU, title='', xml = None):
 
     oc = ObjectContainer(title2=title)
 
-    if url == ROOT_MENU:
+    if url == ROOT_MENU and not xml:
         my_stations = L('My Stations')
         oc.add(DirectoryObject(
             key = Callback(Menu, url=MY_STATIONS, title=my_stations),
