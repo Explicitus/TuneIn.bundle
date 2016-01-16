@@ -4,7 +4,7 @@ ART    = 'art-default.jpg'
 ICON   = 'icon-default.png'
 ICON_MORE   = 'arrow-next-2-icon.png'
 
-STATION_URL = 'http://tunein.com/radio/-%s/'
+# STATION_URL = 'http://tunein.com/radio/-%s/'
 USER_URL = 'http://opml.radiotime.com/Browse.ashx?c=presets&partnerId=RadioTime&username=%s'
 MY_STATIONS = 'tunein://mystations'
 
@@ -64,14 +64,15 @@ def Menu(url=ROOT_MENU, title='', xml = None):
         image = item.get('image')
         key = item.get('key')
         subtext = item.get('subtext')
-        station_id = item.get('guide_id')
+        # station_id = item.get('guide_id')
 
         if key in ['unavailable', 'related']:
             continue
 
         if typ == 'audio':
             oc.add(TrackObject(
-                url = STATION_URL % station_id,
+                url = local_url,
+                # url = STATION_URL % station_id,
                 title = text,
                 summary = subtext,
                 thumb = Resource.ContentsOfURLWithFallback(image)
