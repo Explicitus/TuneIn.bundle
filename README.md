@@ -17,3 +17,7 @@ Such username can be found if you open a web page of a tunein user, for [this](h
 * [Example of a user profile page](http://tunein.com/user/adamchuk2168/)
 * [Setting header to HTTP Request](http://thingsinjars.com/post/297/writing-a-plex-plugin-part-i/)
 * [Persisting channel information](http://forums.plex.tv/discussion/88179/storing-user-data-in-dict)
+* [RadioTime API documentation](https://github.com/brianhornsby/plugin.audio.tuneinradio/wiki/RadioTime-API-Methods:-Browse)
+* [Stations for a user in xml format](http://opml.radiotime.com/Browse.ashx?c=presets&partnerId=RadioTime&username=adamchuk2168)
+* Requestign detailed station info in json format: `curl 'http://tunein.com/radio/-s23428/' -H 'Accept: application/json, text/javascript, */*; q=0.01' -H 'X-Requested-With: XMLHttpRequest'`
+* Requesting stations stream info: `curl 'http://stream.radiotime.com/listen.stream?streamIds=9652698&rti=dihyG20zOk1VUx9xRB5fWFslWUwQWxt5UhFLXVhIJlsWThRxYFsIDFcHJnwQRgQzWQcUWAIRRDxFTAl3Tx0KFlIXDHRqGAVABUUFU1pWZwI%3d%7e%7e%7e' -H 'Accept: application/json, text/javascript, */*; q=0.01' -H 'X-Requested-With: XMLHttpRequest'`

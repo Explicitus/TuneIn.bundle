@@ -1,39 +1,22 @@
-DETAILS_URL = 'http://opml.radiotime.com/Describe.ashx?id=%s'
-STATION_DETAILS_URL = 'http://opml.radiotime.com/Describe.ashx?c=nowplaying&id=%s'
+import json
 
-RE_ID = Regex('id=(?P<id>(s|p)\d+)')
+URL_STATION = 'http://tunein.com/radio/-%s/'
+
+RE_IDS = [
+    Regex('-(?P<id>(s|p)\d+)/'),
+    Regex('id=(?P<id>(s|p)\d+)')
+    ]
 
 ####################################################################################################
 def MetadataObjectForURL(url):
 
-    station_id = RE_ID.search(url).group('id')
-    station_details_page = XML.ElementFromURL(STATION_DETAILS_URL % station_id)
-
-    station = station_details_page.xpath("//outline[@key='station']/@text")[0]
-
-    title = None
-    hosts = None
-    thumb = ''
-
-    try:
-        show_id = station_details_page.xpath("//outline[@key='show']/@guide_id")[0]
-        show_detail_page = XML.ElementFromURL(DETAILS_URL % show_id)
-
-        try: title = show_detail_page.xpath("//show/title/text()")
-        except: pass
-
-        try: hosts = show_detail_page.xpath("//show/hosts/text()")
-        except: pass
-
-        try: thumb = show_detail_page.xpath("//show/logo/text()")
-        except: pass
-    except: pass
+    station = TuneInStation(url = url)
 
     return TrackObject(
-        artist = station,
-        album = title,
-        title = hosts,
-        thumb = Resource.ContentsOfURLWithFallback(thumb)
+        artist = station.title,
+        album = station.playing,
+        title = station.summary,
+        thumb = Resource.ContentsOfURLWithFallback(station.image_url)
     )
 
 ####################################################################################################
@@ -50,18 +33,86 @@ def MediaObjectsForURL(url):
 ####################################################################################################
 def PlayTrack(url):
 
-    details = XML.ElementFromURL(url + '&c=ebrowse')
-    Log(XML.StringFromElement(details))
+    station = TuneInStation(url = url)
 
-    audios = details.xpath("//outline[@type='audio']")
-    best_reliability = 0
-    for audio in audios:
-        reliability = int(audio.get('reliability'))
+    best_reliability = -1
+    for stream in station.loadStreams():
+        reliability = int(stream['Reliability'])
         if reliability > best_reliability:
             best_reliability = reliability
-            stream_url = audio.get('URL')
-    Log(stream_url)
+            stream_url = stream['Url']
 
-    # Log(HTTP.Request(stream_url).content.strip())
+    # stream_url = HTTP.Request(m3u8).content.strip()
 
-    return Redirect(HTTP.Request(stream_url).content.strip())
+    # Log("m3u8 url: %s, audio stream: %s" %(m3u8, stream_url))
+
+    return Redirect(stream_url)
+
+####################################################################################################
+def GetStationId(url):
+
+    for re in RE_IDS:
+        m = re.search(url)
+        if m:
+            return m.group('id')
+
+    return None
+
+####################################################################################################
+def UrlRequest(url):
+
+    return HTTP.Request(
+        url,
+        headers={
+            'x-requested-with': 'XMLHttpRequest',
+            'Accept' : 'application/json, text/javascript, */*; q=0.01'}
+        ).content
+
+####################################################################################################
+class TuneInStation:
+
+    def __init__(self, id='', url=''):
+        if not id:
+            id = GetStationId(url)
+
+        text = UrlRequest(URL_STATION % id)
+
+        self.js = json.loads(text)['payload']['Station']
+        self.broadcast = self.js['broadcast']
+        self.echo = self.broadcast['EchoData']
+
+        Log.Debug('Station id: %s, json: %s' % (id, self.js))
+        # print('Station id: %s, json: %s' % (id, self.js))
+
+    @property
+    def id(self):
+        return self.echo['targetGuideId']
+
+    @property
+    def title(self):
+        return self.broadcast['Title']
+
+    @property
+    def description(self):
+        return self.js['description']
+
+    @property
+    def image_url(self):
+        return self.broadcast['Logo']
+
+    @property
+    def summary(self):
+        return self.echo['subtitle']
+
+    @property
+    def playing(self):
+        return self.broadcast['SongPlayingTitle']
+
+    @property
+    def stream_url(self):
+        return self.broadcast['StreamUrl']
+
+    def loadStreams(self):
+        text = UrlRequest(self.stream_url)[2:-2]
+        return json.loads(text)['Streams']
+

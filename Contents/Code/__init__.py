@@ -132,7 +132,7 @@ def MakeDefaultStationsList(oc, url, outline_text):
                 ))
 
             elif item.get('type') == 'audio':
-                # Log.Debug("Adding track: "+item.get('URL'))
+                Log.Debug("Station XML: "+XML.StringFromElement(root))
 
                 oc.add(TrackObject(
                     url = item.get('URL'),

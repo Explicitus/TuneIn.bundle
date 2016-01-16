@@ -1,0 +1,212 @@
+{
+  "markup": "\r\n<div class=\"abs-leader\">\r\n      <div id=\"leader_ad_container\" class=\"clearfix ad-container\">\r\n    <div id=\"leader_ad\">\r\n<div class=\"ad-container\">\r\n  <div id=\"div-gpt-ad-1346198113942-0\" class=\"ad-content\" ></div>\r\n</div>\r\n    </div>\r\n  </div>\r\n\r\n</div>\r\n<div component=\"HeroRibbon\" id=\"hero-ribbon\">\r\n  <div id=\"fixable-header\" class=\"ribbon\">\r\n    <div class=\"frame\">\r\n        <div class=\"hero\" id=\"imgSrc\" style=\"background-image: url(http://cdn-static.tunein.com/201601121211/img/tunein-fm/station.jpg);\"></div>\r\n          <div class=\"hero-blur\" data-src=\"http://cdn-static.tunein.com/201601121211/img/tunein-fm/station-blurred.jpg\"></div>\r\n\r\n      <div class=\"gradient\"></div>\r\n    </div>\r\n\r\n    <div class=\"container\">\r\n      <div class=\"info clearfix\" >\r\n          <ul class=\"hero-buttons fl-r clearfix\">\r\n              <li class=\"fl-l follow \">\r\n                <span class=\"_follow\" >\r\n                  <span class=\"copy-out\">Follow</span>\r\n                  <span class=\"copy-in\">Following</span>\r\n                </span>\r\n              </li>\r\n                          <li class=\"share fl-l\">\r\n                Share\r\n              </li>\r\n          </ul>\r\n        <div class=\"logo\">\r\n          <div class=\"img-bg\">\r\n            <div class=\"img-src\" style=\"background-image: url('http://cdn-radiotime-logos.tunein.com/s119801q.png'); filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://cdn-radiotime-logos.tunein.com/s119801q.png', sizingMethod='scale');\"></div>\r\n          </div>\r\n        </div>\r\n          <h1>Radio RMF Swieta</h1>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div id=\"fixable-header-shim\" class=\"ribbon\"></div>\r\n  <div class=\"meta-counts clearfix container  \">\r\n    <ul class=\"counts\">\r\n        <li class=\"contents fl-l\">\r\n          <div class=\"count\">1</div>\r\n          <div class=\"copy\">Broadcast</div>\r\n        </li>\r\n                    <li class=\"followed-by fl-l\">\r\n          <div class=\"count\">4.1K</div>\r\n          <div class=\"copy\">Followers</div>\r\n        </li>\r\n          </ul>\r\n  </div>\r\n</div>\r\n<div component=\"Station\" data-background=\"#ECD1EC\">\r\n  <div class=\"container cols player\" itemscope=\"itemscope\" itemtype=\"http://schema.org/MusicRecording\">\r\n    <meta itemprop=\"image\" content=\"http://cdn-radiotime-logos.tunein.com/s119801q.png\" />\r\n    <div id=\"mainContent\" class=\"col1 col station-profile\">\r\n\r\n\r\n  <div class=\"clearfix\">\r\n      <div class=\"guide-item-groups\" component=\"GuideItemGroups\">\r\n      <h2>Stations</h2>\r\n      <div class=\"group clearfix \">\r\n        <ul>\r\n          \r\n\r\n<li class=\"guide-item playtile station \" >\r\n<div class=\"play-button\">\r\n  <div class=\"icon\"></div>\r\n</div>\r\n<div class=\"content\">\r\n    <h3 class=\"title\">Slade - Merry Xmas Everybody</h3>\r\n    <h4 class=\"subtitle\">Radio RMF Swieta</h4>\r\n</div>\r\n<div class=\"lock\"></div>\r\n</li>\r\n        </ul>\r\n  \r\n      </div>\r\n  </div>\r\n\r\n  </div>\r\n\r\n\r\n<div id=\"stationRelatedContent\">\r\n  <div class=\"timeline\">\r\n    <div id=\"station-info-form\"></div>\r\n    <div id=\"station-stream-form\"></div>\r\n  </div>\r\n\r\n\r\n    <div id=\"line-up\" class=\"daily-lineup\">\r\n      <h2>Daily Schedule</h2>\r\n      <div class=\"simple-box\">\r\n        <p>\r\n          TuneIn does not have lineup information for this date.\r\n            Try visiting the station's <a href=\"http://www.rmfon.pl/\" class=\"info-website\" target=\"_blank\">website</a> for more information.\r\n        </p>\r\n      </div>\r\n    </div>\r\n</div>\r\n    </div>\r\n\r\n    <div class=\"col2 col\">\r\n<div class=\"outside_ad\">\r\n<div class=\"ad-container\">\r\n  <div id=\"GoogleAd1\" class=\"ad-content\" ></div>\r\n</div>\r\n</div>        \r\n<div class=\"station-info\">\r\n  <div class=\"station-info-header\">\r\n    <h3>STATION INFORMATION</h3>\r\n  </div>\r\n  <div class=\"info-panel\">\r\n    <ul>\r\n      <li>\r\n        <label>Location</label>\r\n        <span itemprop=\"contentLocation\">Krakow, Poland</span>\r\n      </li>\r\n            \r\n        <li class=\"dark-link\">\r\n\r\n          <label>Genres</label> \r\n          <meta itemprop=\"genre\" content=\"Polish Music\"/>\r\n            <a href=\"/radio/Polish-Music-g157/\">Polish Music</a>\r\n        </li>\r\n\r\n        <li class=\"dark-link\">\r\n\r\n          <label>Networks</label>\r\n            <a href=\"/radio/stations/RMF-Poland-Radio-Stations-a38215/\" target=\"_blank\" data-hijax=\"false\">RMF Poland</a>\r\n        </li>\r\n\r\n      <li>\r\n        <label>Language</label>\r\n        <span itemprop=\"inLanguage\">Polish</span>\r\n      </li>\r\n\r\n        <li>\r\n          <label>Contact</label>\r\n30-204 Krak&#243;w<BR>Al. Waszyngtona 1          \r\n            <div class=\"phone-no\">+48 (12) 662-20-00</div>\r\n        </li>\r\n\r\n      <li class=\"link-list\">\r\n          <a href=\"http://www.rmfon.pl/\" target=\"_blank\" data-hijax=\"false\">Visit the station website</a>\r\n                  <a href=\"mailto:redakcja@rmfon.pl\" data-hijax=\"false\">Email the station</a>\r\n                      <a href=\"/Syndication/Edit/?stationId=119801\" title=\"Improve or complete the information for Radio RMF Swieta\" target=\"_blank\" data-hijax=\"false\">Suggest an update</a>\r\n      </li>\r\n    </ul>\r\n  </div>\r\n  <div class=\"mobile-links\">\r\n    <h3>Listen to Radio RMF Swieta on your phone!</h3>\r\n    <a class=\"google\" target=\"_blank\" href=\"https://play.google.com/store/apps/details?id=tunein.player&amp;hl=en&amp;referrer=utm_medium%3dreferral%26utm_source%3dtunein.com%26utm_campaign%3dweb_redirect%26utm_content%3ds119801%26sourceGuideId%3ds119801\" data-ga-click-event=\"play_store_link\"></a>\r\n    <a class=\"apple\" target=\"_blank\" href=\"https://itunes.apple.com/us/app/tunein-radio/id418987775?mt=8&amp;uo=4&amp;at=1l3v4iy&amp;referrer=utm_medium%3dreferral%26utm_source%3dtunein.com%26utm_campaign%3dweb_redirect%26utm_content%3ds119801%26sourceGuideId%3ds119801\" data-ga-click-event=\"ios_store_link\"></a>\r\n  </div>\r\n    <div id=\"availableStreams\">\r\n\r\n\r\n    </div>\r\n</div>\r\n  <div class=\"station-description info-text\">\r\n    <h3>More information<span class=\"dot orange\"></span></h3>\r\n    <span itemprop=\"description\">\r\n      RMFon.pl to platforma muzyczna, prezentująca kilkadziesiąt stacji radiowych online, dedykowanych r&#243;żnym gatunkom, dekadom i artystom oraz radia RMF FM, RMF Maxxx i RMF Classic. Ponadto RMFon to muzyczne newsy, biografie, dyskografie, galerie, kalendarium, filmy wideo i konkursy.\r\n    </span>\r\n  </div>\r\n\r\n    </div>\r\n\r\n  </div>\r\n</div>\r\n",
+  "testGroup": {
+    "tests": [],
+    "testIds": []
+  },
+  "payload": {
+    "Station": {
+      "stationId": 119801,
+      "description": "Radio RMF Swieta",
+      "broadcast": {
+        "GuideId": "s119801",
+        "FollowGuideId": "s119801",
+        "IsFollowing": false,
+        "ShareData": {
+          "title": "Radio RMF Swieta",
+          "subtitle": "Wybierz radio internetowe i znajdź muzykę dla siebie!",
+          "image": "http://cdn-radiotime-logos.tunein.com/s119801q.png",
+          "url": "http://tun.in/seOgl",
+          "shareText": "Listen to Radio RMF Swieta on TuneIn",
+          "guideId": "s119801",
+          "tuneType": "Station",
+          "playGuideId": "s119801",
+          "canEmbed": true,
+          "isDomainRestricted": false
+        },
+        "EchoData": {
+          "sourceGuideId": null,
+          "targetGuideId": "s119801",
+          "scope": "s119801",
+          "imageUrl": "http://cdn-radiotime-logos.tunein.com/s119801q.png",
+          "title": "Radio RMF Swieta",
+          "subtitle": "Wybierz radio internetowe i znajdź muzykę dla siebie!"
+        },
+        "SubscriptionRequired": false,
+        "StationId": 119801,
+        "ProgramId": 0,
+        "TopicId": 0,
+        "StartTime": null,
+        "TuneType": "Station",
+        "IsProgram": false,
+        "HasTopics": false,
+        "TopicDuration": 0,
+        "BuildVersion": "201601121211",
+        "DisplaySubtitle": null,
+        "SongPlayingTitle": "Merry Xmas Everybody - Slade",
+        "AudioClipId": 0,
+        "AudioClipOwnerId": null,
+        "ContentDuration": 0,
+        "IsEvent": false,
+        "StreamId": 0,
+        "HasUpcomingProgram": false,
+        "IsAutoTune": false,
+        "GeoRestricted": false,
+        "StreamUrl": "http://stream.radiotime.com/listen.stream?streamIds=9652698&rti=dihyG20zOk1VUx9xRB5fWFslWUwQWxt5UhFLXVhIJlsWThRxYFsIDFcHJnwQRgQzWQcUWAIRRDxFTAl3Tx0KFlIXDHRqGAVABUUFU1pWZwI%3d%7e%7e%7e",
+        "DirectStreams": [],
+        "Streams": [],
+        "Url": "http://tun.in/seOgl",
+        "Title": "Radio RMF Swieta",
+        "Logo": "http://cdn-radiotime-logos.tunein.com/s119801q.png",
+        "ShareLogo": "http://cdn-radiotime-logos.tunein.com/s119801q.png",
+        "DeepLinkUrl": "/tune/s119801",
+        "PartnerId": null,
+        "NavUrl": "/radio/Radio-RMF-Swieta-s119801/",
+        "Location": "Krakow, Poland",
+        "PlayableLater": false,
+        "BroadcasterRestricted": false,
+        "AllowCommercialAds": true,
+        "AllowAudioBanners": false
+      },
+      "isInPremiumUpsellRegion": false
+    },
+    "GuideItemGroups": {
+      "groups": [
+        {
+          "moreBaseUrl": "/profile/contentItems/?identifier=",
+          "hasMore": false,
+          "count": 1,
+          "guideItems": [
+            {
+              "GuideId": "s119801",
+              "Token": "BAUGAAAAAAAAAQVIUgAAAAAAAA%3d%3d",
+              "FollowGuideId": "s119801",
+              "Url": "/radio/Radio-RMF-Swieta-s119801/",
+              "CanPlay": true,
+              "CanPlayInline": true,
+              "CanViewProfile": false,
+              "ForcePlay": true,
+              "CanEmbed": true,
+              "Title": "Radio RMF Swieta",
+              "Subtitle": "Slade - Merry Xmas Everybody",
+              "Image": "http://cdn-radiotime-logos.tunein.com/s119801q.png",
+              "PlayGuideId": "s119801",
+              "ShareText": "Listen to Radio RMF Swieta on TuneIn",
+              "ShareUrl": "http://tun.in/seOgl",
+              "SourceItemId": null,
+              "TargetItemId": "s119801",
+              "Scope": "s119801",
+              "SubscriptionRequired": false,
+              "Presentation": "PlayTile",
+              "Type": "Station"
+            }
+          ],
+          "limit": 20
+        }
+      ]
+    },
+    "ShowsPlaylist": {
+      "stationId": 119801,
+      "pageSize": 5,
+      "items": []
+    },
+    "HeroRibbon": {
+      "guideId": "s119801",
+      "contentsUrl": "/station/contents?stationId=119801",
+      "selectedTabIndex": 0,
+      "shareData": {
+        "title": "Radio RMF Swieta",
+        "subtitle": "Wybierz radio internetowe i znajdź muzykę dla siebie!",
+        "image": "http://cdn-radiotime-logos.tunein.com/s119801q.png",
+        "url": "http://tun.in/seOgl",
+        "shareText": "Listen to Radio RMF Swieta on TuneIn",
+        "guideId": "s119801",
+        "tuneType": "Station",
+        "playGuideId": "s119801",
+        "canEmbed": true,
+        "isDomainRestricted": false
+      }
+    }
+  },
+  "adSettings": {
+    "tuneInEnabled": true,
+    "rotationEnabled": true,
+    "rotationPeriod": 300,
+    "baseUrl": "http://ads.tunein.com",
+    "trackingId": "e79a3393-e3a1-4cc4-91df-dcd92e137f3d",
+    "listingId": "s119801",
+    "partnerKey": "RadioTime",
+    "supplementalProgramId": null,
+    "displaySlots": [
+      {
+        "id": "GoogleAd1",
+        "height": 250,
+        "width": 300,
+        "dimensions": [
+          [
+            300,
+            250
+          ],
+          [
+            300,
+            600
+          ]
+        ],
+        "extId": "15480783/ca-pub-1542925551861702/Station",
+        "slotName": "station_side",
+        "adType": "Display",
+        "tuneInEnabled": true,
+        "audioBannerEnabled": true,
+        "googleAdsEnabled": true
+      },
+      {
+        "id": "div-gpt-ad-1346198113942-0",
+        "height": 90,
+        "width": 728,
+        "dimensions": [
+          [
+            728,
+            90
+          ],
+          [
+            970,
+            66
+          ]
+        ],
+        "extId": "15480783/ca-pub-1542925551861702/StationLeader",
+        "slotName": "station_top",
+        "adType": "Display",
+        "tuneInEnabled": true,
+        "audioBannerEnabled": false,
+        "googleAdsEnabled": true
+      }
+    ],
+    "audioSlots": [
+      {
+        "slotName": "station_preroll",
+        "adType": "Audio",
+        "durationSeconds": 15,
+        "tune": {
+          "stationId": 119801,
+          "programId": 0,
+          "topicId": 0,
+          "tuneType": "Station"
+        }
+      }
+    ],
+    "videoSlots": [],
+    "locale": "en-US",
+    "serverUtcTime": 130974046112805589,
+    "targeting": {
+      "env": "prod",
+      "gn": "157",
+      "class": "music",
+      "ListingId": "s119801"
+    },
+    "vendriPLID": "web01",
+    "openXHeader": "ox-d.tunein.servedbyopenx.com/w/1.0/jstag?nc=15480783-Tunein"
+  },
+  "pageTitle": "Radio RMF Swieta - Krakow - Listen Online",
+  "userAnonymous": true,
+  "metaTagContent": "    <meta name=\"description\" content=\"Listen online to Radio RMF Swieta in Krakow, Poland. RMFon.pl to platforma muzyczna, prezentująca kilkadziesiąt stacji radiowych online, dedykowanych r&#243;żnym gatunkom, dekadom i artystom oraz radia RMF FM, RMF Maxxx i RMF Classic. Ponadto RMFon to muzyczne newsy, biografie, dyskografie, galerie, kalendarium, filmy wideo i konkursy.\" />\r\n    <meta name=\"keywords\" content=\"Radio RMF Swieta - Krakow, online radio\" />\r\n    <meta property=\"og:title\" content=\"Radio RMF Swieta\" />\r\n    <meta property=\"og:type\" content=\"music.radio_station\" />\r\n    <meta property=\"og:image\" content=\"http://cdn-radiotime-logos.tunein.com/s119801q.png\" />\r\n    <meta property=\"og:description\" content=\"Listen to Radio RMF Swieta on TuneIn\" />\r\n    <meta property=\"og:url\" content=\"http://tunein.com/station/?StationId=119801\" />\r\n    <meta name=\"twitter:card\" content=\"summary\" />\r\n    <meta name=\"twitter:site\" content=\"@tunein\" />\r\n    <meta name=\"twitter:title\" content=\"Radio RMF Swieta\" />\r\n    <meta name=\"twitter:description\" content=\"Wybierz radio internetowe i znajdź muzykę dla siebie!\" />\r\n    <meta name=\"twitter:image\" content=\"http://cdn-radiotime-logos.tunein.com/s119801q.png\" />\r\n    <meta name=\"twitter:url\" content=\"http://tun.in/seOgl\" />\r\n<meta property=\"og:site_name\" content=\"TuneIn\" />\r\n<meta property=\"fb:app_id\" content=\"157627720928660\" />\r\n"
+}
