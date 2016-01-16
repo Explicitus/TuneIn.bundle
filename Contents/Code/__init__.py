@@ -2,7 +2,6 @@ ROOT_MENU = 'http://opml.radiotime.com/Browse.ashx?formats=mp3,aac'
 
 ART    = 'art-default.jpg'
 ICON   = 'icon-default.png'
-ICON_MORE   = 'arrow-next-2-icon.png'
 
 # STATION_URL = 'http://tunein.com/radio/-%s/'
 USER_URL = 'http://opml.radiotime.com/Browse.ashx?c=presets&partnerId=RadioTime&username=%s'
