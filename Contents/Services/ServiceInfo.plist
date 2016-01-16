@@ -9,6 +9,7 @@
 			<key>URLPatterns</key>
 			<array>
 				<string>^http://opml\.radiotime\.com/Tune\.ashx</string>
+				<string>^http://tunein\.com/radio/.*-(s|p)\d+/$</string>
 			</array>
 		</dict>
 	</dict>
