@@ -64,13 +64,14 @@ def Menu(url=ROOT_MENU, title='', xml = None):
         image = item.get('image')
         key = item.get('key')
         subtext = item.get('subtext')
+        station_id = item.get('guide_id')
 
         if key in ['unavailable', 'related']:
             continue
 
         if typ == 'audio':
             oc.add(TrackObject(
-                url = local_url,
+                url = STATION_URL % station_id,
                 title = text,
                 summary = subtext,
                 thumb = Resource.ContentsOfURLWithFallback(image)
