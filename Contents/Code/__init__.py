@@ -6,6 +6,7 @@ ICON   = 'icon-default.png'
 # STATION_URL = 'http://tunein.com/radio/-%s/'
 USER_URL = 'http://opml.radiotime.com/Browse.ashx?c=presets&partnerId=RadioTime&username=%s'
 MY_STATIONS = 'tunein://mystations'
+CUSTOM_URL_PREFIX = 'tunein://play?'
 
 ####################################################################################################
 def Start():
@@ -64,16 +65,34 @@ def Menu(url=ROOT_MENU, title='', xml = None):
         key = item.get('key')
         subtext = item.get('subtext')
         # station_id = item.get('guide_id')
+        itemAttr = item.get('item')
+
 
         if key in ['unavailable', 'related']:
             continue
 
-        if typ == 'audio':
+        if itemAttr == 'url':
+            data = {
+                'url' : local_url,
+                'title': text,
+                'summary': subtext,
+                'image': image
+            }
+
+            oc.add(TrackObject(
+                url = CUSTOM_URL_PREFIX+String.Encode(JSON.StringFromObject(data)),
+                title = text,
+                summary = subtext,
+                source_title = 'TuneIn',
+                thumb = Resource.ContentsOfURLWithFallback(image)
+            ))
+        elif typ == 'audio':
             oc.add(TrackObject(
                 url = local_url,
                 # url = STATION_URL % station_id,
                 title = text,
                 summary = subtext,
+                source_title = 'TuneIn',
                 thumb = Resource.ContentsOfURLWithFallback(image)
             ))
         elif typ == 'link':

@@ -10,6 +10,7 @@
 			<array>
 				<string>^http://opml\.radiotime\.com/Tune\.ashx</string>
 				<string>^http://tunein\.com/radio/.*-(s|p)\d+/$</string>
+				<string>^tunein://</string>
 			</array>
 		</dict>
 	</dict>

@@ -5,16 +5,35 @@ RE_IDS = [
     Regex('id=(?P<id>(s|p)\d+)')
     ]
 
+CUSTOM_URL_PREFIX = 'tunein://play?'
+
 ####################################################################################################
 def MetadataObjectForURL(url):
 
-    station = TuneInStation(url = url)
+    Log.Debug("Requesting metadata for url: %s", url)
+
+    customStream = ParseCustomUrl(url)
+
+    if customStream:
+        title = customStream['title']
+        summary = customStream['summary']
+        playing = summary
+        image_url = customStream['image']
+    else:
+        station = TuneInStation(url)
+
+        title = station.title
+        summary = station.title
+        playing = station.playing
+        image_url = station.image_url
 
     return TrackObject(
-        artist = station.title,
-        album = station.playing,
-        title = station.summary,
-        thumb = Resource.ContentsOfURLWithFallback(station.image_url)
+        artist = title,
+        album = playing,
+        title = summary,
+        summary = playing,
+        source_title = 'TuneIn',
+        thumb = Resource.ContentsOfURLWithFallback(image_url)
     )
 
 ####################################################################################################
@@ -31,7 +50,12 @@ def MediaObjectsForURL(url):
 ####################################################################################################
 def PlayTrack(url):
 
-    station = TuneInStation(url = url)
+    customStream = ParseCustomUrl(url)
+
+    if customStream:
+        return Redirect(customStream['url'])
+
+    station = TuneInStation(url)
 
     best_reliability = -1
     for stream in station.loadStreams():
@@ -67,13 +91,30 @@ def UrlRequest(url):
         ).content
 
 ####################################################################################################
+def ParseCustomUrl(url):
+
+    if not url.startswith(CUSTOM_URL_PREFIX):
+        return None
+
+    param = url[len(CUSTOM_URL_PREFIX):]
+
+    Log.Debug("Url: %s, param encoded: %s", url, param)
+
+    s = String.Decode(param)
+    Log.Debug("param decoded: %s", s)
+
+    return JSON.ObjectFromString(s)
+
+####################################################################################################
 class TuneInStation:
 
-    def __init__(self, id='', url=''):
+    def __init__(self, url='', id=''):
         if not id:
             id = GetStationId(url)
 
         text = UrlRequest(URL_STATION % id)
+
+        # Log.Debug("Requested url: %s, response: %s", url, text)
 
         self.js = JSON.ObjectFromString(text)['payload']['Station']
         self.broadcast = self.js['broadcast']
