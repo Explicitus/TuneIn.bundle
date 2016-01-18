@@ -98,10 +98,10 @@ def ParseCustomUrl(url):
 
     param = url[len(CUSTOM_URL_PREFIX):]
 
-    Log.Debug("Url: %s, param encoded: %s", url, param)
+    # Log.Debug("Url: %s, param encoded: %s", url, param)
 
     s = String.Decode(param)
-    Log.Debug("param decoded: %s", s)
+    # Log.Debug("param decoded: %s", s)
 
     return JSON.ObjectFromString(s)
 
@@ -116,11 +116,17 @@ class TuneInStation:
 
         # Log.Debug("Requested url: %s, response: %s", url, text)
 
-        self.js = JSON.ObjectFromString(text)['payload']['Station']
+        payload = JSON.ObjectFromString(text)['payload']
+
+        if 'Station' in payload:
+            self.js = payload['Station']
+        else:
+            self.js = payload['Program']
+
         self.broadcast = self.js['broadcast']
         self.echo = self.broadcast['EchoData']
 
-        Log.Debug('Station id: %s, json: %s' % (id, self.js))
+        # Log.Debug('Station id: %s, json: %s' % (id, self.js))
         # print('Station id: %s, json: %s' % (id, self.js))
 
     @property
